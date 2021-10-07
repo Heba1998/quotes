@@ -6,6 +6,7 @@ package quotes;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,4 +21,11 @@ class AppTest {
         }
         assertEquals( false , saveQuotes.contains("{author:Heba\ntext: “A Dark time comes. }") );
     }
+
+    @Test void testApiReader() throws IOException {
+        String testQuote =  App.ShowapiQuotes("http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en");
+        assertNotNull(testQuote);
+    }
+
+
 }
