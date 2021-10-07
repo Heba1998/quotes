@@ -4,11 +4,20 @@
 package quotes;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test void testFileReader() throws FileNotFoundException {
+        List allQuotes = App.ShowQuote("./src/test/resources/recentquotes.json");
+        ArrayList<String> saveQuotes = new ArrayList<>();
+        for (Object i : allQuotes) {
+            saveQuotes.add(i.toString());
+        }
+        assertEquals( false , saveQuotes.contains("{author:Heba\ntext: “A Dark time comes. }") );
     }
 }
