@@ -15,6 +15,7 @@ import java.util.List;
 
 public class App {
 
+// lab9
 
     public static void main(String[] args) throws IOException {
         ShowapiQuotes("http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en");
