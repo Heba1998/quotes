@@ -15,6 +15,7 @@ import java.util.List;
 
 public class App {
 
+// lab9
 
     public static void main(String[] args) throws IOException {
         ShowapiQuotes("http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en");
@@ -38,6 +39,8 @@ public class App {
     }
 
     public static String ShowapiQuotes(String url) throws IOException {
+
+        try {
         StringBuilder createdLine = new StringBuilder();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
 
@@ -61,8 +64,11 @@ public class App {
             fileToWrite.close();
         } else {
             ShowQuote("app/src/main/resources/recentquotes.json");
+        }} catch (IOException e) {
+            ShowQuote("app/src/main/resources/recentquotes.json");
         }
         return url;
+
     }
 
 }
