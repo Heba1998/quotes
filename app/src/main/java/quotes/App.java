@@ -39,6 +39,8 @@ public class App {
     }
 
     public static String ShowapiQuotes(String url) throws IOException {
+
+        try {
         StringBuilder createdLine = new StringBuilder();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
 
@@ -62,8 +64,11 @@ public class App {
             fileToWrite.close();
         } else {
             ShowQuote("app/src/main/resources/recentquotes.json");
+        }} catch (IOException e) {
+            ShowQuote("app/src/main/resources/recentquotes.json");
         }
         return url;
+
     }
 
 }
